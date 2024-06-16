@@ -11,6 +11,7 @@ public class MapGenerator : MonoBehaviour
     {
         NoiseMap,
         ColorMap,
+        Mesh,
     }
 
     public DrawMode _drawMode = DrawMode.ColorMap;
@@ -71,6 +72,12 @@ public class MapGenerator : MonoBehaviour
         else if (_drawMode == DrawMode.ColorMap)
         {
             display.DrawTexture(TextureGenerator.TextureFromColorMap(colorMap,_mapWidth,_mapHeight));
+        }
+        else if (_drawMode == DrawMode.Mesh)
+        {
+            MeshData meshData = MeshGenerator.GenerateTerrainMesh(noiseMap);
+            Texture2D texture = TextureGenerator.TextureFromColorMap(colorMap, _mapWidth, _mapHeight);
+            display.DrawMesh(meshData,texture);
         }
     }
 

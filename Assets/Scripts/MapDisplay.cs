@@ -7,6 +7,11 @@ public class MapDisplay : MonoBehaviour
 {
     [SerializeField]
     private Renderer _textureRenderer;
+    
+    [SerializeField]
+    private MeshFilter _meshFilter;
+    [SerializeField]
+    private MeshRenderer _meshRenderer;
 
     public void DrawTexture(Texture2D texture)
     {
@@ -14,15 +19,10 @@ public class MapDisplay : MonoBehaviour
         _textureRenderer.transform.localScale = new Vector3(texture.width, 1.0f, texture.height);
     }
 
-    public void DrawNoiseMap(float[,] noiseMap)
+    public void DrawMesh(MeshData meshData,Texture2D texture)
     {
-        int width = noiseMap.GetLength(0);
-        int height = noiseMap.GetLength(1);
-        Texture2D texture = TextureGenerator.TextureFromHeightMap(noiseMap);
+        _meshFilter.sharedMesh = meshData.CreateMesh();
+        _meshRenderer.sharedMaterial.mainTexture = texture;
 
-        //texture.filterMode = FilterMode.Point;
-        
-        _textureRenderer.sharedMaterial.mainTexture = texture;
-        _textureRenderer.transform.localScale = new Vector3(width,1,height);
     }
 }
