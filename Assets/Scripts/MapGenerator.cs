@@ -32,13 +32,17 @@ public class MapGenerator : MonoBehaviour
     
     [SerializeField]
     public bool _autoUpdate = false;
-
+    [SerializeField]
     public int _seed;
+    [SerializeField]
     public Vector2 _offset;
+
+    [SerializeField] 
+    private float _heightMultiplier = 1.0f;
 
     [SerializeField]
     private TerrainType[] _regions;
-    
+
     public void GenerateMap()
     {
         float[,] noiseMap = Noise.GenerateNoiseMap(
@@ -75,7 +79,7 @@ public class MapGenerator : MonoBehaviour
         }
         else if (_drawMode == DrawMode.Mesh)
         {
-            MeshData meshData = MeshGenerator.GenerateTerrainMesh(noiseMap);
+            MeshData meshData = MeshGenerator.GenerateTerrainMesh(noiseMap,_heightMultiplier);
             Texture2D texture = TextureGenerator.TextureFromColorMap(colorMap, _mapWidth, _mapHeight);
             display.DrawMesh(meshData,texture);
         }
