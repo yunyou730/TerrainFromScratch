@@ -48,6 +48,7 @@
      <Compile Include="Assets/Scripts/Noise.cs" />
      <Compile Include="Assets/Scripts/MapGenerator.cs" />
      <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
+     <Compile Include="Assets/Scripts/TextureGenerator.cs" />
      <Compile Include="Assets/Scripts/MapDisplay.cs" />
      <Folder Include="Assets" />
      <None Include="Library/PackageCache/com.unity.modules.subsystems@1.0.0/package.json" />

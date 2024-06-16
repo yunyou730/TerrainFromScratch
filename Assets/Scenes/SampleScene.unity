@@ -578,15 +578,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c4c242893ca413695a5979ca91bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _drawMode: 1
   _mapWidth: 50
   _mapHeight: 50
-  _noiseScale: 27
+  _noiseScale: 10.8
   _octaves: 4
   _persistance: 0.484
   _lacunarity: 2
   _autoUpdate: 1
   _seed: 0
   _offset: {x: 0, y: 0}
+  _regions:
+  - name: water
+    height: 0.5
+    color: {r: 0.16353686, g: 0.47362542, b: 0.7075472, a: 0}
+  - name: sand
+    height: 0.56
+    color: {r: 1, g: 0.82689786, b: 0, a: 0}
+  - name: land
+    height: 0.88
+    color: {r: 0.44973704, g: 0.8584906, b: 0.1579299, a: 0}
+  - name: snow
+    height: 1
+    color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1734286324
 MonoBehaviour:
   m_ObjectHideFlags: 0
